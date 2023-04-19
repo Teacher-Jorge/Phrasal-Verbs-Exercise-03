@@ -1,21 +1,27 @@
 const put = document.getElementById('put')
 const putz = document.getElementById('putz')
-const pan = document.getElementById('pan')
+const btnPan = document.getElementById('animation-button')
 
 let translate = document.getElementById('translate')
 
-put.addEventListener('click', function() {
+btnPan.addEventListener('click', (e) => {
+    e.preventDefault
+    btnPan.classList.add('animate')
+    setTimeout(() => {
+        btnPan.classList.remove('animate')
+    }, 600)  
+    
     let right = document.getElementById('right')
     right.play()
     translate.style.visibility = 'visible'
     let click = document.getElementById('click')
     click.play()
     let answer = document.getElementById('answer')
-    answer.innerText = 'put out'
-    put.style.backgroundColor = 'lime'
-    put.style.color = 'green'
+    answer.innerText = 'panning out.'
+    btnPan.style.backgroundColor = 'lime'
+    btnPan.style.color = 'green'
+    btnPan.disabled = 'true'
     put.disabled = 'true'
-    pan.disabled = 'true'
     putz.disabled = 'true'
 })
 
@@ -37,7 +43,7 @@ putz.addEventListener('click', function() {
     putz.disabled = 'true'
 })
 
-pan.addEventListener('click', function() {
+put.addEventListener('click', function() {
     let click = document.getElementById('click')
     click.play()
     let wrong2 = document.getElementById('wrong2')
@@ -51,9 +57,9 @@ pan.addEventListener('click', function() {
         img1.style.opacity = '1'
         img2.style.opacity = '0'
     }, 800);
-    pan.style.backgroundColor = 'red'
-    pan.style.color = 'yellow'
-    pan.disabled = 'true'
+    put.style.backgroundColor = 'red'
+    put.style.color = 'yellow'
+    put.disabled = 'true'
 })
 
 translate.addEventListener('click', function() {
@@ -62,9 +68,9 @@ translate.addEventListener('click', function() {
     let click = document.getElementById('click')
     click.play()
     let sentence = document.getElementById('sentence')
-    translate.innerText = 'Os bombeiros foram chamados pra apagar o fogo mas já era tarde demais!'
+    translate.innerText = 'O negócio dele parece não estar dando certo.'
     setTimeout(() => {
         translate.innerHTML = 'Translate and Listen'
-    }, 6000);
+    }, 4000);
 })
 
